@@ -1,0 +1,18 @@
+<!-- sneaker_detail.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sneaker Detail</title>
+</head>
+<body>
+    <h1>{{ sneaker.name }}</h1>
+    <h2>Sizes and Quantities:</h2>
+    <ul>
+        {% for size in sizes %}
+            <li>Size: {{ size.size }} - Quantity: {{ size.quantity }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

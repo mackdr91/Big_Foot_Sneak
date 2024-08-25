@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="flex  justify-center p-10 mb-10">
+    {% if user.is_authenticated %}
+    <div class="text-center text-3xl  text-gray-800">
+        👋 Hi, <span class="font-semibold">{{ user.username }}</span>! What's the next cop?
+    </div>
+    {% endif %}
+
+  </div>
+
+
+
+  <div class="grid grid-rows-2 grid-flow-col gap-4 justify-center">
+    <div class="relative w-48 h-48">
+        <div class="absolute inset-0 bg-black translate-x-3 translate-y-3 z-0"></div>
+        <div class="relative w-full h-full flex items-center justify-center text-3xl font-bold text-center bg-white z-10">
+            <div class="w-48 h-48 p-6 rounded-full ">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Sneaker Icon" >
+            </div>
+            <br>
+        </div>
+    </div>
+    <div class="relative w-48 h-48">
+        <div class="absolute inset-0 bg-black translate-x-3 translate-y-3 z-0"></div>
+        <div class="relative w-full h-full flex items-center justify-center text-3xl font-bold  text-center bg-white z-10">
+            Collections
+            <br>{{ collection }}
+
+        </div>
+
+    </div>
+    <div class="relative w-48 h-48">
+        <div class="absolute inset-0 bg-black translate-x-3 translate-y-3 z-0"></div>
+        <div class="relative w-full h-full flex items-center justify-center text-3xl font-bold text-center bg-white z-10">
+            Sneakers
+            <br>{{ sneaker_count }}
+        </div>
+    </div>
+    <div class="relative w-48 h-48">
+        <div class="absolute inset-0 bg-black translate-x-3 translate-y-3 z-0"></div>
+        <div class="relative w-full h-full flex items-center justify-center text-3xl font-bold text-center bg-white z-10">
+            Locations
+            <br>{{ location }}
+
+
+
+
+
+
+        </div>
+
+    </div>
+</div>
+
+
+    <div class="relative">
+        <div class="absolute inset-0 bg-black translate-x-3 translate-y-3 z-0"></div>
+
+        <div class="flex bg-white mt-10 p-6 relative">
+            <h2 class="text-3xl font-bold">Sneakers</h2>
+
+            <div class="flex justify-end">
+                {% for sneaker in sneaker %}
+                    <div class="w-10 h-48 p-6 rounded-full ">
+
+                        <a href="{% url 'inventory:sneaker_detail' sneaker.id %}">
+                            {{ sneaker.name }}
+                            </a>
+                    </div>
+                {% endfor %}
+        </div>
+    </div>
+
+{% endblock content %}
+
